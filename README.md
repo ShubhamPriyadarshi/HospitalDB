@@ -22,6 +22,6 @@
 
 -   In MySQL Server, import the two stored procedures and execute the script to save them. 
 -   Afterwards, install the python dependencies from requirements.txt file.
--   Execute the main.py file and afterwards run the unit tests using tests.py file
+-   Execute the main.py file and run the unit tests using tests.py file
 
 
