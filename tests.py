@@ -23,7 +23,7 @@ class MyFirstTests(unittest.TestCase):
         self.assertNotEqual(self.fixture.empty, df.empty)
 
     def test_file_columns(self):
-        # Checks if the column names from the csv matches the given format
+        # Checks if the column names from the csv matches the given format.
         self.assertEqual(self.test_columns, list(self.fixture.columns))
 
     # The following functions tests for overflow of the records of each column.

@@ -6,7 +6,7 @@ import MySQLdb
 
 def open_file():
     """
-        For reading the csv file
+        For reading the csv file.
     """
     try:
         df = pd.read_csv("data/Sample_input.csv", sep="|", index_col=None)
