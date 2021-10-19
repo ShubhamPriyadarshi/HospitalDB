@@ -17,3 +17,13 @@
 -   /data/**Sample_input.csv** - This file consists of the raw data to be ingested by the python script.
 -   /**main.py** -  This python file ingests the data from Sample_input, shapes it and ingests it to the mysql database, calling relevant procedures for the problem statement.
 -   /**tests.py** - This python file consists of several unit tests.  
+
+## Project Guide
+
+In MySQL Server, import the two stored procedures and execute the script to save them. 
+
+Afterwards, install the python dependencies from requirements.txt file.
+
+Execute the main.py file and afterwards run the unit tests using tests.py file
+
+
