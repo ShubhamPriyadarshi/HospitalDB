@@ -1,17 +1,18 @@
 import unittest
 import pandas as pd
 import numpy
-from main import open_file, create_tables
+from main import open_file
 
 
 class MyFirstTests(unittest.TestCase):
-    test_columns = ['H', 'Customer_Name', 'Customer_Id', 'Open_Date', 'Last_Consulted_Date', 'Vaccination_Id',
+    test_columns = ['H', 'Customer_Name', 'Customer_Id',
+                    'Open_Date', 'Last_Consulted_Date', 'Vaccination_Id',
                     'Dr_Name', 'State', 'Country', 'DOB', 'Is_Active']
     num_of_rows = 0
 
     def setUp(self):
         df = open_file()
-        if not (df.empty):
+        if not df.empty:
             df.pop(df.columns.values[0])
         self.fixture = df
         self.num_of_rows = len(self.fixture.index)
@@ -46,7 +47,7 @@ class MyFirstTests(unittest.TestCase):
         for i in range(0, self.num_of_rows, 1):
             record = self.fixture.iloc[i]['Open_Date']
             is_valid = len(str(record)) == 8 and str(record) != '' and isinstance(record, numpy.int64)
-            if not (is_valid):
+            if not is_valid:
                 break
         self.assertEqual(True, is_valid)
 
@@ -55,7 +56,7 @@ class MyFirstTests(unittest.TestCase):
         for i in range(0, self.num_of_rows, 1):
             record = self.fixture.iloc[i]['Vaccination_Id']
             is_valid = len(str(record)) <= 5
-            if not (is_valid):
+            if not is_valid:
                 break
         self.assertEqual(True, is_valid)
 
@@ -64,7 +65,7 @@ class MyFirstTests(unittest.TestCase):
         for i in range(0, self.num_of_rows, 1):
             record = self.fixture.iloc[i]['Dr_Name']
             is_valid = len(str(record)) <= 255
-            if not (is_valid):
+            if not is_valid:
                 break
         self.assertEqual(True, is_valid)
 
@@ -73,7 +74,7 @@ class MyFirstTests(unittest.TestCase):
         for i in range(0, self.num_of_rows, 1):
             record = self.fixture.iloc[i]['State']
             is_valid = len(str(record)) <= 5
-            if not (is_valid):
+            if not is_valid:
                 break
         self.assertEqual(True, is_valid)
 
@@ -82,7 +83,7 @@ class MyFirstTests(unittest.TestCase):
         for i in range(0, self.num_of_rows, 1):
             record = self.fixture.iloc[i]['Country']
             is_valid = len(str(record)) <= 5
-            if not (is_valid):
+            if not is_valid:
                 break
         self.assertEqual(True, is_valid)
 
@@ -91,7 +92,7 @@ class MyFirstTests(unittest.TestCase):
         for i in range(0, self.num_of_rows, 1):
             record = self.fixture.iloc[i]['DOB']
             is_valid = len(str(record)) == 8 and isinstance(record, numpy.int64)
-            if not (is_valid):
+            if not is_valid:
                 break
 
     def test_col_is_active(self):
@@ -99,6 +100,6 @@ class MyFirstTests(unittest.TestCase):
         for i in range(0, self.num_of_rows, 1):
             record = self.fixture.iloc[i]['Is_Active']
             is_valid = len(str(record)) == 1
-            if not (is_valid):
+            if not is_valid:
                 break
         self.assertEqual(True, is_valid)

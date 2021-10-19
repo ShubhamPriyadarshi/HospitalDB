@@ -10,13 +10,14 @@ def open_file():
     except IOError:
         print('Cannot open file')
         df = pd.DataFrame()
-        return df;
+        return df
     return df
 
 
 def shape_dataframe(df):
     df.pop(df.columns.values[0]), df.pop(df.columns.values[0])
-    df.columns = ['Name', 'Cust_I', 'Open_Dt', 'Consul_Dt', 'VAC_ID', 'DR_NAME', 'State', 'Country', 'DOB', 'FLAG']
+    df.columns = ['Name', 'Cust_I', 'Open_Dt', 'Consul_Dt',
+                  'VAC_ID', 'DR_NAME', 'State', 'Country', 'DOB', 'FLAG']
     df['DOB'] = pd.to_datetime(df['DOB'], format='%d%m%Y').dt.strftime('%Y%m%d')
     return df
 
@@ -52,4 +53,5 @@ if __name__ == '__main__':
     df = open_file()
     if not df.empty:
         df = shape_dataframe(df)
-    create_tables(df)
+        create_tables(df)
+        print("Tables successfully Created.")
