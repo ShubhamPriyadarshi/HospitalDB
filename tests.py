@@ -18,17 +18,20 @@ class MyFirstTests(unittest.TestCase):
         self.num_of_rows = len(self.fixture.index)
 
     def test_file_existence(self):
+        # Checks if csv file exists
         df = pd.DataFrame()
         self.assertNotEqual(self.fixture.empty, df.empty)
 
     def test_file_columns(self):
+        # Checks if the column names from the csv matches the given format
         self.assertEqual(self.test_columns, list(self.fixture.columns))
 
+    # The following functions tests for overflow of the records of each column.
     def test_col_name(self):
         is_valid = False
         for i in range(0, self.num_of_rows, 1):
             record = self.fixture.iloc[i]['Customer_Name']
-            is_valid = len(record) <= 255 and record != ''
+            is_valid = len(str(record)) <= 255 and record != ''
             if not (is_valid):
                 break
         self.assertEqual(True, is_valid)
